@@ -1,3 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+
+*{
+  -moz- box-sizing: border-box;
+  -webkit- box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Amatic SC', 'serif';
+}
+
+
 h1 {
   color: slategrey;
+  text-align: center;
+  font-size: 4em;
+}
+
+.container {
+text-align: center;
+}
+
+.rows{
+  display: block;
+  width: 360px;
+  height: 120px;
+  margin: 0 auto;
+  /*border: 1px solid blue;
+  background-color: black;*/
+  /*max-width: 50%;*/
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.column1 {
+  float: left;
+}
+
+.column2 {
+  margin: 0 auto;
+}
+
+.column3 {
+  float: right;
 }
