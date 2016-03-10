@@ -26,6 +26,7 @@ h2 {
   margin-bottom: 1px;
   border: none;
   box-shadow: 1px 1px 2px rgba(0, 145, 200, 0.32);
+  vertical-align: middle;
 }
 
 .container {
@@ -112,13 +113,30 @@ float: left;
 }
 
 .playerTurn{
-  padding-bottom: 30px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.resetButton{
+  font-size: 2em;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  -moz-transition: all 0.25s linear;
+   -webkit-transition: all 0.25s linear;
+   -o-transition: all 0.25s linear;
+   transition: all 0.25s linear;
+}
+
+.resetButton:hover{
+  cursor: pointer;
+  background-color: rgba(0, 85, 212, 0.5);
 }
 
 .winnerDisplay{
   display: inline-block;
   width: 200px;
-  height: 230px;
+  height: 280px;
   border-radius: 10px;
   background-color: #AACACF;
   /*display: relative;
@@ -135,5 +153,9 @@ float: left;
 }
 
 .winnerDisplay h3{
+  font-size: 1.5em;
+}
+
+.xTotals, .oTotals{
   font-size: 1.5em;
 }

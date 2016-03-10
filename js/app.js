@@ -2,14 +2,6 @@ console.log("test")
 $(document).ready(function(){
 
 
-// 1 2 3 = 6
-// 4 5 6 = 15
-// 7 8 9 = 24
-// diagonal 1 = 15
-// diagonal 2 = 15
-
-
-
 var xPlayer = $('<img src="assets/bunchy.gif" style ="width: 50px">');
 var oPlayer = $('<img src="assets/lama.gif" style="width: 50px" >');
 
@@ -27,39 +19,77 @@ var winnerO= 0;
 
 var winner;
 
+
+var mainWinner = function(){
+  if (winnerX ===3 ){
+    swal("Good job!", "Worm Lama has won 3 games!", "success")
+  }
+  if (winnerO ===3 ){
+    swal("Good job!", "Galactic Lama has won 3 games!", "success")
+  }
+};
+
 var checkWinner = function (){
-  // Basically, we need to figure out all the combinations
-    // Horizontal - .a, .b, .c - .d, .e, .f - .g, .h, .i
-     if ($(".a.xClass, .b.xClass, .c.xClass").length === 3) {
-      return  winner = xPlayer;
+  // debugger;
+    if ($(".a.xClass, .b.xClass, .c.xClass").length === 3) {
+        winner = xPlayer;
     }if ($(".d.xClass, .e.xClass, .f.xClass").length === 3) {
-      return  winner = xPlayer;
+        winner = xPlayer;
     }if ($(".g.xClass, .h.xClass, .i.xClass").length ===3) {
-      return  winner = xPlayer;
+        winner = xPlayer;
+    }if ($(".a.xClass, .d.xClass, .g.xClass").length === 3) {
+        winner = xPlayer;
+    }if ($(".b.xClass, .e.xClass, .h.xClass").length ===3) {
+        winner = xPlayer;
+    }if ($(".c.xClass, .f.xClass, .i.xClass").length ===3) {
+        winner = xPlayer;
     }if ($(".a.xClass, .e.xClass, .i.xClass").length ===3) {
-      return  winner = xPlayer;
+        winner = xPlayer;
     }if ($(".g.xClass, .e.xClass, .c.xClass").length ===3) {
-      return  winner = xPlayer;
+        winner = xPlayer;
     }if ($(".a.oClass, .b.oClass, .c.oClass").length === 3) {
-     return  winner = oPlayer;
-   }if ($(".d.oClass, .e.oClass, .f.oClass").length === 3) {
-     return  winner = oPlayer;
-   }if ($(".g.oClass, .h.oClass, .i.oClass").length === 3) {
-     return  winner = oPlayer;
-   }if ($(".a.oClass, .e.oClass, .i.oClass").length === 3) {
-     return  winner = oPlayer;
-   }if ($(".g.oClass, .e.oClass .c.oClass").length === 3) {
-     return  winner = oPlayer;
+       winner = oPlayer;
+    }if ($(".d.oClass, .e.oClass, .f.oClass").length === 3) {
+       winner = oPlayer;
+    }if ($(".g.oClass, .h.oClass, .i.oClass").length === 3) {
+       winner = oPlayer;
+    }if ($(".a.oClass, .d.oClass, .g.oClass").length === 3) {
+      winner = oPlayer;
+    }if ($(".b.oClass, .e.oClass, .h.oClass").length === 3) {
+      winner = oPlayer;
+    }if ($(".c.oClass, .f.oClass, .i.oClass").length === 3) {
+      winner = oPlayer;
+    }if ($(".a.oClass, .e.oClass, .i.oClass").length === 3) {
+       winner = oPlayer;
+    }if ($(".g.oClass, .e.oClass .c.oClass").length === 3) {
+       winner = oPlayer;
+   }if (winner === undefined && $(".box img").length === 9){
+      return sweetAlert({
+	       title: "DRAW!",
+         text: "Please Reset game!",
+         type: "error"
+                });
    }
+   if(xPlayer === winner){
+     winnerX += 1;
+   }
+   if(oPlayer === winner){
+     winnerO += 1;
+   }
+   mainWinner();
+   $(".xTotals").html("Worm Lama : ").append(winnerX);
+   $(".oTotals").html("Galactic Lama : ").append(winnerO);
   return winner;
 };
+
+
+
+
 
 $(".box").on("click", function(){
   if ( $(this).find('img').length > 0 ) {
     return false;
-  }
-
-  $(this).append(currentPlayer.clone()).addClass("symbols");
+  } $(this).append(currentPlayer.clone()).addClass("symbols");
   if (currentPlayer === xPlayer) {
     $(this).addClass("xClass");
     currentPlayer = oPlayer;
@@ -72,43 +102,33 @@ $(".box").on("click", function(){
     // $("h2.playerTurn").text().remove();
     $("h2.playerTurn").text("Next Player is:").append(xPlayer);
   }
-  if ( checkWinner())  {
+  var roundWinner = checkWinner();
+
+  if ( roundWinner )  {
     // console.log("winner")
     // var $span = $("<span>").html( "Winner = " );
     // $span.append( checkWinner() );
-    $(".winnerIs").html( "Winner = " ).append( checkWinner() );
+    $(".winnerIs").html( "Winner = " ).append( roundWinner );
     $('.winnerDisplay').css("opacity", 1).addClass('animated bounceInUp');
+    winner = false;
   }
 });
 
 
 
-  // $('button').on('click', move);
-
-//
-// var row1 = ["","",""],
-// var row2 = ["","",""],
-// var row3 = ["","",""],
-//
-// row1[i]= currentPlayer
-//
-// $(".box").onclick : function(){
-//    if ($(this) (currentPlayer).push
-//   }
-//
-//  }
 
 
-
-
-
-
-
-
-
-
+$(".resetButton").on("click", function (){
+$(".rows img, .playerTurn img, .winnerIs img").remove();
+$(".box").removeClass("xClass oClass");
+$(".winnerDisplay").css("opacity", 0).removeClass("animated bounceInUp");
+// window.location = window.location
+})
 
 }); //end $(document.ready)
+
+
+
 
 
 

@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="css/clearfix.css" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+    <script src="dist/sweetalert.min.js"></script>
     <script src="js/jquery-1.12.1.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <title>Tic Tac Toe</title>
@@ -16,39 +18,44 @@
       <div class="chooseTeam">
         <h2>Choose &nbsp;&nbsp;The&nbsp;&nbsp;First&nbsp;&nbsp;Player's&nbsp;&nbsp;Symbol
 
-          <span id="chooseX">
+          <button id="chooseX">
             <img src="assets/bunchy.gif" style='width:50px' alt=""/></button>
           <span>/</span>
-
           <button id="chooseO">
             <img src="assets/lama.gif" style='width:50px' alt="" />
-          </span>
+          </button>
 
         </h2>
       </div>
-      <div class="rows row1 cf">
+      <div class="rows  cf">
         <div class="col1 box a"></div>
         <div class="col2 box b"></div>
         <div class="col3 box c"></div>
       </div>
-
-      <div class="rows row2 cf">
+      <div class="rows ">
         <div class="col1 box d"></div>
         <div class="col2 box e"></div>
         <div class="col3 box f"></div>
       </div>
 
-      <div class="rows row3 cf">
+      <div class="rows cf">
         <div class="col1 box g"></div>
         <div class="col2 box h"></div>
         <div class="col3 box i"></div>
       </div>
       <h2 class=" cf playerTurn">Next Player is: </h2>
+      <button type="button" name="button" class="resetButton">Reset Game</button>
     </div> <!--end container-->
     <div class="winnerDisplay cf">
       <h2 class="winnerIs">The Winner is: </h2>
       <h2 class="totalWins"></br></h2>
-        <h3>Total Wins</br> X : </br> O : </h3>
+        <h3>Total Wins out of 3</h3>
+          <div class="xTotals">
+            Worm Lama : </br>
+          </div>
+          <div class="oTotals">
+            Galactic Lama :
+          </div>
     </div>
   </body>
 </html>
