@@ -1,21 +1,42 @@
-@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
-
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700&subset=latin,latin-ext);
 *{
   -moz- box-sizing: border-box;
   -webkit- box-sizing: border-box;
   box-sizing: border-box;
   font-family: 'Amatic SC', 'serif';
+  font-weight: light;
 }
 
 
 h1 {
   color: slategrey;
-  text-align: center;
   font-size: 4em;
+  margin-left: 32%;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin: 0 0 1.5em 0;
+}
+
+#chooseX, #chooseO{
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1px;
+  border: none;
+  box-shadow: 1px 1px 2px rgba(0, 145, 200, 0.32);
 }
 
 .container {
+margin: 0 auto;
+padding-top: 30px;
+width: 480px;
 text-align: center;
+background-color: rgba(158, 158, 158, 0.43);
+border-radius: 10px;
+margin-left: 20%;
+float: left;
 }
 
 .rows{
@@ -23,27 +44,96 @@ text-align: center;
   width: 360px;
   height: 120px;
   margin: 0 auto;
+  position: relative;
   /*border: 1px solid blue;
   background-color: black;*/
   /*max-width: 50%;*/
 }
 
 .box {
-  width: 100px;
-  height: 100px;
-  background-color: pink;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   display: inline-block;
+  box-shadow: 3px 4px 12px rgba(19, 30, 88, 0.33);
+
+  background-color: #03A9F4;
+  -moz-transition: all 0.25s linear;
+   -webkit-transition: all 0.25s linear;
+   -o-transition: all 0.25s linear;
+   transition: all 0.25s linear;
+}
+.box:hover{
+  background-color: #3F51B5;
+  width: 95px;
+  height: 95px;
+  cursor: pointer;
 }
 
-.column1 {
-  float: left;
+.col1 {
+  position: absolute;
+  left: 0px;
 }
 
-.column2 {
+.col2 {
   margin: 0 auto;
 }
 
-.column3 {
-  float: right;
+.col3 {
+  position: absolute;
+  right: 0px;
+}
+
+.symbols {
+    margin: 0 auto;
+    padding: 7px;
+    font-size: 3.8em;
+}
+
+
+#chooseX, #chooseO{
+  color: #03A9F4;
+  -moz-transition: all 0.25s linear;
+   -webkit-transition: all 0.25s linear;
+   -o-transition: all 0.25s linear;
+   transition: all 0.25s linear;
+}
+
+#chooseO:hover{
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#chooseX:hover{
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.playerTurn{
+  padding-bottom: 30px;
+}
+
+.winnerDisplay{
+  display: inline-block;
+  width: 200px;
+  height: 230px;
+  border-radius: 10px;
+  background-color: #AACACF;
+  /*display: relative;
+  left: 500px;
+  top: 0;*/
+  float: left;
+  margin-left: 1%;
+  padding: 30px;
+  opacity: 0;
+}
+
+.winnerDisplay h2{
+  margin: 0 0 -0.5em 0;
+}
+
+.winnerDisplay h3{
+  font-size: 1.5em;
 }
