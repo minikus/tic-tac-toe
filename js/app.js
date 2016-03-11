@@ -16,8 +16,36 @@ $("#chooseO").on("click", function(){
 
 var winnerX = 0;
 var winnerO= 0;
+var inputValue = "";
 
 var winner;
+var player1Name = '';
+var inputName = function(){
+    swal({   title: "Welcome to Lama Tic-Tac-Toe",
+          text: "Player 1:",
+          type: "input",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          animation: "slide-from-top",
+          inputPlaceholder: "Enter Nickname"
+        },
+    function(inputValue){
+      console.log('got', inputValue)
+      $('.userName1').text(inputValue);
+      if (inputValue === false)
+      return false;
+       if (inputValue === "") {
+         swal.showInputError("You need to write something!");
+         return false
+       }
+      swal("Nice!", "You wrote: " + inputValue, "success"); });
+
+      return inputValue;
+};
+
+inputName();
+$(".userName1").text(inputValue);
+
 
 
 var mainWinner = function(){
@@ -77,11 +105,13 @@ var checkWinner = function (){
      winnerO += 1;
    }
    mainWinner();
-   $(".xTotals").html("Worm Lama : ").append(winnerX);
+   //$(".xTotals .score").text(winnerX);
+   var $name1 = $('.userName1');
+   $(".xTotals").html($name1).append(' : ').append(winnerX);
    $(".oTotals").html("Galactic Lama : ").append(winnerO);
+
   return winner;
 };
-
 
 
 
@@ -111,11 +141,9 @@ $(".box").on("click", function(){
     $(".winnerIs").html( "Winner = " ).append( roundWinner );
     $('.winnerDisplay').css("opacity", 1).addClass('animated bounceInUp');
     winner = false;
+
   }
 });
-
-
-
 
 
 $(".resetButton").on("click", function (){
